@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'myapp/style.css' %}"
+    />
+  </head>
+  <body>
+    <!-- Main Content Container for Login -->
+    <div class="main-wrapper">
+      <main class="container">
+        <h2>Login</h2>
+        <form method="post">
+          {% csrf_token %} {{ form.as_p }}
+          <button type="submit" class="btn">Login</button>
+        </form>
+        <p>
+          Don't have an account?
+          <a href="{% url 'register' %}">Register here</a>.
+        </p>
+      </main>
+    </div>
+  </body>
+</html>

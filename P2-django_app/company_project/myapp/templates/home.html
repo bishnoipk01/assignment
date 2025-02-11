@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Home - Companies &amp; Profile</title>
+    <!-- Link to the unified CSS file -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'myapp/style.css' %}"
+    />
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+
+    <!-- Main Content Container -->
+    <div class="main-wrapper">
+      <main class="container">
+        <h1>Companies</h1>
+        {% if companies %}
+        <ul class="ul">
+          {% for company in companies %}
+          <a href="{% url 'company_detail' company.pk %}"
+            ><li class="company-item">{{ company.name }}</li></a
+          >
+          {% endfor %}
+        </ul>
+        {% else %}
+        <p>No companies found.</p>
+        <p>
+          <a href="{% url 'company_create' %}" class="btn"
+            >Create a new company</a
+          >
+        </p>
+        {% endif %}
+      </main>
+    </div>
+  </body>
+</html>

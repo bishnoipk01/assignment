@@ -1,0 +1,280 @@
+/* ======================================================================
+   Global Styles
+   ====================================================================== */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #f8f9fa, #e9ecef);
+}
+
+.main-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 60px); /* full height - height of navbar */
+}
+
+.container {
+  max-width: 600px;
+  width: 100%;
+  padding: 30px;
+  background: #f1f1f1;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Form Container for Larger Forms (Register, Edit Profile) */
+.form-container {
+  width: 90%;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 15px 25px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+}
+
+/* ======================================================================
+   Navbar 
+   ====================================================================== */
+.navbar {
+  background-color: #343a40;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Use flex for nav items and align them centrally */
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Navigation links */
+.nav-link {
+  color: #fff;
+  font-size: 16px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for nav links */
+.nav-link:hover {
+  background-color: #495057;
+}
+
+/* Logout form: Use flex to align the button */
+.logout-form {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Logout button: Remove default styling and align with nav links */
+.logout-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  padding: 6px 12px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  vertical-align: middle;
+}
+
+.logout-btn:hover {
+  background-color: #495057;
+}
+
+/* ======================================================================
+   Headings & Text
+   ====================================================================== */
+
+h1,
+h2,
+h3 {
+  text-align: center;
+  color: #343a40;
+  margin-bottom: 20px;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+}
+
+/* A separate style for company items */
+.company-item {
+  background-color: #f1f1f1;
+  color: #333;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Hover effect for company items */
+.company-item:hover {
+  background-color: #e9ecef;
+  border-color: #007bff;
+}
+
+.company-item a {
+  text-decoration: none;
+}
+
+/* ======================================================================
+   Form Elements
+   ====================================================================== */
+
+/* Applies to every form inside a container */
+.container form,
+.form-container form {
+  width: 90%;
+  max-width: 600px;
+  margin: 20px auto; /* Centers the form with some vertical spacing */
+  padding: 20px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+/* ======================================================================
+   Form Group & Label Styling
+   ====================================================================== */
+
+/* Grouping fields for consistent spacing */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Style for labels to ensure consistency and clarity */
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* ======================================================================
+   Input & Textarea Field Styling
+   ====================================================================== */
+
+/* Apply styles specifically to form fields within the container */
+.container form input[type="text"],
+.container form input[type="email"],
+.container form input[type="password"],
+.container form textarea,
+.form-container form input[type="text"],
+.form-container form input[type="email"],
+.form-container form input[type="password"],
+.form-container form textarea {
+  width: 100%;
+  max-width: 350px;
+  padding: 12px;
+  margin: 10px 0;
+  display: block;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.container form input[type="text"]:focus,
+.container form input[type="email"]:focus,
+.container form input[type="password"]:focus,
+.container form textarea:focus,
+.form-container form input[type="text"]:focus,
+.form-container form input[type="email"]:focus,
+.form-container form input[type="password"]:focus,
+.form-container form textarea:focus {
+  outline: none;
+  border-color: #80bdff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Style for all <ul> elements */
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 20px 0;
+}
+
+/* Style for list items inside <ul> */
+ul li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+/* ======================================================================
+   Buttons & Unified Link Button Styling (.btn)
+   ====================================================================== */
+
+/* Common button style for both <button> elements and anchor links with class .btn */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 10px;
+}
+
+/* Hover state for .btn */
+.btn:hover {
+  background-color: #0056b3;
+}
+
+/* If using <button> elements without .btn, you can apply these styles */
+button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 4px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 10px;
+}
+button:hover {
+  background-color: #0056b3;
+}
+
+/* ======================================================================
+   Responsive Design
+   ====================================================================== */
+
+/* For smaller screens, reduce margins and padding */
+@media (max-width: 480px) {
+  .container {
+    margin: 40px 20px;
+    padding: 20px 20px 20px 30px;
+  }
+}

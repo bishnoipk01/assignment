@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Company Detail</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'myapp/style.css' %}"
+    />
+  </head>
+  <body>
+    <!-- Include the separate navbar -->
+    {% include 'navbar.html' %}
+
+    <!-- Main Content Container -->
+    <div class="main-wrapper">
+      <main class="container">
+        <h2>{{ company.name }}</h2>
+        <p><strong>Address:</strong> {{ company.address }}</p>
+        <p><strong>Description:</strong> {{ company.description }}</p>
+        <p>
+          <a href="{% url 'home' %}" class="btn">Home</a>
+        </p>
+      </main>
+    </div>
+  </body>
+</html>

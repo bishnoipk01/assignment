@@ -1,0 +1,14 @@
+<!-- myapp/templates/myapp/navbar.html -->
+<header class="navbar">
+  <div class="navbar-brand">My App</div>
+  <nav class="navbar-nav">
+    <a href="{% url 'home' %}" class="nav-link">Home</a>
+    <a href="{% url 'user_detail' pk=request.user.pk %}" class="nav-link"
+      >Profile</a
+    >
+    <form action="{% url 'logout' %}" method="post" class="logout-form">
+      {% csrf_token %}
+      <button type="submit" class="nav-link logout-btn">Logout</button>
+    </form>
+  </nav>
+</header>

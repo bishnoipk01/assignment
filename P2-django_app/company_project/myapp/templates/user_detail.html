@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Your Profile</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'myapp/style.css' %}"
+    />
+  </head>
+  <body>
+    <!-- Include the separate navbar -->
+    {% include 'navbar.html' %}
+
+    <!-- Main Content Container -->
+    <div class="main-wrapper">
+      <main class="container">
+        <h2>Your Profile</h2>
+
+        <!-- Display email (non-editable) -->
+        <p><strong>Email:</strong> {{ user_obj.email }}</p>
+
+        <!-- Editable profile fields -->
+        <p><strong>First Name:</strong> {{ user_obj.first_name }}</p>
+        <p><strong>Last Name:</strong> {{ user_obj.last_name }}</p>
+
+        <!-- Optional additional fields -->
+        {% if user_obj.phone_number %}
+        <p><strong>Phone Number:</strong> {{ user_obj.phone_number }}</p>
+        {% endif %} {% if user_obj.bio %}
+        <p><strong>Bio:</strong> {{ user_obj.bio }}</p>
+        {% endif %}
+
+        <!-- Link to edit profile -->
+        <p>
+          <a href="{% url 'user_edit' pk=user_obj.pk %}" class="btn"
+            >Edit Profile</a
+          >
+        </p>
+      </main>
+    </div>
+  </body>
+</html>

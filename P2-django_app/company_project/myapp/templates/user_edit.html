@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Edit Profile</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'myapp/style.css' %}"
+    />
+  </head>
+  <body>
+    <!-- Include the separate navbar; note the correct path -->
+    {% include 'navbar.html' %}
+
+    <!-- Main Content Container -->
+    <main class="form-container">
+      <h2>Edit Your Profile</h2>
+      <form method="post">
+        {% csrf_token %} {{ form.as_p }}
+        <button type="submit" class="btn">Save Changes</button>
+      </form>
+      <p>
+        <a href="{% url 'user_detail' pk=request.user.pk %}" class="btn"
+          >Back to Profile</a
+        >
+      </p>
+    </main>
+  </body>
+</html>
