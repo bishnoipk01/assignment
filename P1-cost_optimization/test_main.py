@@ -1,4 +1,18 @@
-# test_minimize_cost.py
+"""
+Unit tests for the minimize_cost function.
+
+This module validates the behavior of the minimize_cost function
+
+Test cases include:
+- Standard expected output for a sample input.
+- Edge cases such as capacity zero or capacity that cannot be met.
+- The impact of a time multiplier on the overall cost.
+- Scenarios with only one box type available.
+- Scenarios where no boxes are available.
+- Scenarios where the capacity exactly matches the volume of a specific box.
+- Negative input values for capacity and time, which should raise a ValueError.
+"""
+
 import unittest
 from main import minimize_cost
 
@@ -91,6 +105,50 @@ class TestMinimizeCostCalculation(unittest.TestCase):
         }
         result = minimize_cost(self.time_input, capacity_input, self.box_sizes, city_costs)
         self.assertEqual(result, expected)
+    
+    def test_no_available_boxes(self):
+        """
+        Test the scenario where no boxes are available (i.e., all cost values are None).
+        For any positive capacity, the solution should be "No solution".
+        """
+        city_costs = {
+            "EmptyCity": {"XXL": None, "XL": None, "L": None, "M": None, "S": None, "XS": None}
+        }
+        capacity_input = 100
+        expected = {
+            "Output": [
+                {"region": "EmptyCity", "total_cost": "No solution", "boxes": {}}
+            ]
+        }
+        result = minimize_cost(self.time_input, capacity_input, self.box_sizes, city_costs)
+        self.assertEqual(result, expected)
+
+    def test_exact_box_match(self):
+        """
+        When the capacity exactly matches the volume of a single box type,
+        the optimal solution should be to select that box.
+        For instance, if capacity equals 160, the best solution should be one 'XL' box.
+        """
+        capacity_input = 160
+        expected = {
+            "Output": [
+                {"region": "Delhi", "total_cost": 140, "boxes": {"XL": 1}},
+                {"region": "Mumbai", "total_cost": 130, "boxes": {"XL": 1}},
+                {"region": "Kolkata", "total_cost": 118, "boxes": {"XL": 1}}
+            ]
+        }
+        result = minimize_cost(self.time_input, capacity_input, self.box_sizes, self.city_costs)
+        self.assertEqual(result, expected)
+
+    def test_negative_capacity(self):
+        """
+        Negative capacity values are invalid.
+        The function should raise a ValueError when provided a negative capacity.
+        """
+        with self.assertRaises(ValueError):
+            minimize_cost(self.time_input, -10, self.box_sizes, self.city_costs)
+
+  
 
 if __name__ == '__main__':
     unittest.main()

@@ -45,6 +45,10 @@ def minimize_cost(time: int,
                 - "total_cost": The computed minimum cost (or "No solution" if capacity cannot be reached).
                 - "boxes": A dictionary with the count of each box type used.
     """
+
+    # Validate inputs
+    if time < 0 or capacity < 0:
+        raise ValueError("Time and capacity must be non-negative integers.")
     
     results = []  # List to hold the results for each city
 
