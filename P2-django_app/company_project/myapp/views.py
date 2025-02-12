@@ -4,11 +4,22 @@ from django.contrib.auth.decorators import login_required
 from .models import Company, User
 from .forms import UserForm
 from django.contrib.auth import get_user_model, login, authenticate
+from django.contrib.auth.views import LoginView
 
 from .forms import UserRegistrationForm
 
+class CustomLoginView(LoginView):
+    """ Prevents logged-in users from accessing the login page """
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return redirect('/') 
+        return super().dispatch(request, *args, **kwargs)
+
+
 # new user registration
 def register(request):
+    if request.user.is_authenticated:
+        return redirect('/')  # Redirect to the home page if the user is already logged in.
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
         if form.is_valid():

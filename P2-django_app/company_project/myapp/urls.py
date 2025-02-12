@@ -1,6 +1,6 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
-from .views import company_detail, user_detail, user_edit, home, register
+from .views import company_detail, user_detail, user_edit, home, register, CustomLoginView
 from .forms import EmailAuthenticationForm
 from rest_framework.authtoken.views import obtain_auth_token
 
@@ -21,10 +21,11 @@ urlpatterns = [
     path('register/', register, name='register'),
 
     # Authentication URLs: use our custom login form
-    path('login/', auth_views.LoginView.as_view(
-            template_name='login.html',
-            authentication_form=EmailAuthenticationForm
-         ), name='login'),
+    path('login/', CustomLoginView.as_view(
+        template_name='login.html',
+        authentication_form=EmailAuthenticationForm
+    ), name='login'),
+
     path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
 
     # Detail and edit pages (protected by login)
