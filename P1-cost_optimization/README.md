@@ -18,7 +18,7 @@ The task is to determine the combination of boxes (with boxes allowed to be used
 
 ```bash
 git clone https://github.com/bishnoipk01/assignment
-cd P1-cost_optimization
+cd assignment/P1-cost_optimization
 ```
 
 ### 2. Running the Program with Command-Line Arguments

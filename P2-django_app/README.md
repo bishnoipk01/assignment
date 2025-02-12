@@ -5,9 +5,12 @@
 This project is a Django application that demonstrates:
 
 - A custom user model using email as the primary identifier.
-- A Company model for managing company data.
+- A Company model for managing company info.
 - Standard authentication features (login, registration, logout) and profile management.
+- standard users are only allowed to update their profile information
+- Admin users are allowed to modify all company information and users information
 - Token-based authentication and REST API endpoints for both the User and Company models.
+- All the company information and users information are stored in sqlite(default) database
 
 
 ## How to Run the Application
@@ -18,7 +21,7 @@ Follow these steps to clone the repository, set up a virtual environment, instal
 
 ```bash
 git clone https://github.com/bishnoipk01/assignment
-cd P2-Django_app
+cd assignment/P2-django_app
 ```
 
 ### 2. Create and Activate a Virtual Environment
@@ -27,13 +30,13 @@ For macOS/Linux:
 
 ```bash
 python3 -m venv virtualenv
-source venv/bin/activate
+source virtualenv/bin/activate
 ```
 
 For Windows:
 ```bash
 python -m venv virtualenv
-venv\Scripts\activate
+virtualenv\Scripts\activate
 ```
 
 ### 3. Navigate to the Project Directory
@@ -81,6 +84,7 @@ now open the application at http://localhost:[port]
    - Set up token-based authentication with Django REST Framework's authtoken module.
    - Created REST API endpoints to perform CRUD operations on both the User and Company models.
 
+
 3. **User Profile Management**  
    - Developed views and forms to display and edit user profiles.
    - Restricted email changes by excluding the email field from profile edit forms, allowing only other fields (like first name, last name, phone number, and bio) to be updated.
@@ -122,7 +126,7 @@ Alternatively, you can also see API documentation at [API_DOCS](https://document
   List all users.
 
 - **POST /api/users/**  
-  Create a new user.
+  Create a new user (admin only).
 
 - **GET /api/users/<int:pk>/**  
   Retrieve details for a specific user.
@@ -131,7 +135,7 @@ Alternatively, you can also see API documentation at [API_DOCS](https://document
   Update a specific user (admin or the user themselves).
 
 - **DELETE /api/users/<int:pk>/**  
-  Delete a specific user (admin only).
+  Delete a specific user (admin or the user themselves).
 
 **Token Authentication:**
 

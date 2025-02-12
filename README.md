@@ -18,17 +18,18 @@ Each assignment is self-contained in its respective directory. Follow these step
 
 ```bash
 git clone https://github.com/bishnoipk01/assignment
+cd assignment
 ```
 
 ### 1. P1-Cost_Optimization
 
-- **Navigate:** Open the `P1-Cost_Optimization` directory.
+- **Navigate:** Open the `P1-cost_optimization` directory.
 - **Read:** Review the `README.md` in that folder for complete setup instructions, problem description, and implementation details.
 - **Run:** Follow the steps to run the script, and analyze the results.
 
 ### 2. P2-Django_App
 
-- **Navigate:** Open the `P2-Django_App` directory.
+- **Navigate:** Open the `P2-django_app` directory.
 - **Read:** Review the `README.md` in that folder for instructions on setting up your development environment, installing dependencies, and running the Django server.
 - **Run:** Follow the setup instructions (e.g., creating a virtual environment, installing requirements) and launch the application using Django’s management commands.
 
