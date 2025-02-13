@@ -27,18 +27,18 @@ The program is designed to accept command-line arguments for the `time_input` (n
 
  **Run the script using:**
 
-    ```bash
-    python main.py <time_input> <capacity_input>
-    ```
+```bash
+python main.py <time_input> <capacity_input>
+```
 ### 3. Running tests
 
  To ensure that the program functions correctly and handles various scenarios, a suite of tests has been provided. These tests verify the correct behavior of core functions, and edge cases.
 
  **Run the tests using:**
 
-    ```bash
-    python test_main.py 
-    ```
+```bash
+python test_main.py 
+```
 
 
 ## Approach
