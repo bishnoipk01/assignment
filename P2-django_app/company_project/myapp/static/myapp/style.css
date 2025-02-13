@@ -213,6 +213,13 @@ label {
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
+/* overriding style for error display message */
+ul.errorlist li {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
 /* Style for all <ul> elements */
 ul {
   list-style: none;
